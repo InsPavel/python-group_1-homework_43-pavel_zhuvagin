@@ -4,6 +4,6 @@
 {% block content %}
     <h3>Список статей</h3>
     {% for article in article_list %}
-        <a href="#"><h5>{{ article.pk }}.{{ article.title }}</h5></a>
+        <a href="{% url 'article_detail' article.pk %}"><h5>{{ article.pk }}.{{ article.title }}</h5></a>
     {% endfor %}
 {% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Информация о статье{% endblock %}
+{% block content %}
+    <h3>Название статьи</h3>
+        <h5>{{ article.title }}</h5>
+    <h3>Комментарии к статье</h3>
+    {% for comment in article.commented_article.all %}
+        <p>{{ comment.author }}, {{ comment.text }}</p>
+    {% endfor %}
+    <h3>Оценки к статье</h3>
+    {% for rating in article.article_grade.all %}
+        <p>{{ rating.author }}, {{ rating.rating }}</p>
+    {% endfor %}
+{% endblock %}
