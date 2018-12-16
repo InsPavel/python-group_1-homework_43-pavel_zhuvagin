@@ -25,3 +25,25 @@ class Comment(models.Model):
 
     def __str__(self):
         return 'Комментарий: %s Прокомментировал: %s' % (self.text, self.author)
+
+class Rating(models.Model):
+    RATING_TERRIBLY = 'terribly'
+    RATING_BADLY = 'badly'
+    RATING_NORMALLY = 'normally'
+    RATING_GOOD = 'good'
+    RATING_PERFECTLY = 'perfectly'
+
+    STATUS_CHOICES = (
+        (RATING_TERRIBLY, 'Ужасно'),
+        (RATING_BADLY, 'Плохо'),
+        (RATING_NORMALLY, 'Нормально'),
+        (RATING_GOOD, 'Хорошо'),
+        (RATING_PERFECTLY, 'Отлично')
+    )
+
+    article = models.ForeignKey(Article, on_delete=models.PROTECT, related_name="article_grade", verbose_name="Оценка для статьи")
+    author = models.ForeignKey(User, on_delete=models.PROTECT, related_name="appreciated_by", verbose_name="Оценил(а)")
+    rating = models.CharField(max_length=20, blank=True, choices=STATUS_CHOICES, verbose_name="Оценка")
+
+    def __str__(self):
+        return 'Оценка для статьи: %s' % self.article
