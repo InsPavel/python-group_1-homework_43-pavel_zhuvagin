@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block title %}Статьи ползователя{% endblock %}
+{% block content %}
+    <h3>Список статей</h3>
+    {% for article in user.article_author.all %}
+        <p>{{ user.article_author.pk }}{{ article.title }}</p>
+    {% endfor %}
+{% endblock %}
