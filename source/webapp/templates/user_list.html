@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block title %}Пользователи{% endblock %}
+{% block content %}
+     <h3>Список пользователей</h3>
+    {% for user in user_list %}
+        <a href="#"><h5>{{ user.pk }}.{{ user.name }}</h5></a>
+    {% endfor %}
+{% endblock %}

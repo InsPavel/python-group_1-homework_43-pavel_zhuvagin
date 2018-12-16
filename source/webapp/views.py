@@ -1,6 +1,6 @@
 from django.views.generic import ListView, DetailView
 
-from webapp.models import Article
+from webapp.models import Article, User
 
 class ArticleListView(ListView):
     model = Article
@@ -9,3 +9,7 @@ class ArticleListView(ListView):
 class ArticleDetailView(DetailView):
     model = Article
     template_name = 'article_detail.html'
+
+class UserListView(ListView):
+    model = User
+    template_name = 'user_list.html'
