@@ -3,6 +3,7 @@
 {% block title %}Статьи{% endblock %}
 {% block content %}
     <h3>Список статей</h3>
+    {{ article.favorites }}
     {% for article in article_list %}
         <a href="{% url 'article_detail' article.pk %}"><h5>{{ article.pk }}.{{ article.title }}</h5></a>
     {% endfor %}

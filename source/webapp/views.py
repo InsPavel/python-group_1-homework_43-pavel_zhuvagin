@@ -17,3 +17,7 @@ class UserListView(ListView):
 class UserDetailView(DetailView):
     model = User
     template_name = 'user_detail.html'
+
+class FavoritesDetailView(DetailView):
+    model = User
+    template_name = 'favorites_detail.html'

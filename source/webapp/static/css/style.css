@@ -1,0 +1,28 @@
+.comment {
+    width: 70%;
+    border: 1px solid black;
+    padding: 5px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    background: #f8fdff;
+}
+
+.comment p {
+   margin: 0;
+}
+
+.author {
+    text-align: right;
+}
+
+.rating {
+    width: 20%;
+    display: inline-block;
+    border: 1px solid black;
+    padding: 5px;
+}
+
+.rating p {
+    margin: 0;
+    text-transform: uppercase;
+}

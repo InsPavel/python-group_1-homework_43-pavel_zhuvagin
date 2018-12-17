@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}Избранное{% endblock %}
+{% block content %}
+    <h4>Пользователь:</h4>
+    <p>{{ user.name }}</p>
+    <h4>Список избранного:</h4>
+    <h5>Заголовок:</h5>
+ {% for user in user.favorites.all %}
+        <p>{{ user.title }}</p>
+    {% endfor %}
+{% endblock %}

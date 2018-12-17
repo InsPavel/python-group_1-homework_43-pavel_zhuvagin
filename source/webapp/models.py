@@ -2,7 +2,7 @@ from django.db import models
 
 class User(models.Model):
     name = models.CharField(max_length=50, verbose_name="Имя")
-    favorites = models.ManyToManyField('Article', blank=True, related_name='favored_by', verbose_name='Избранное')
+    favorites = models.ManyToManyField('Article', blank=True, verbose_name='Избранное')
 
     def __str__(self):
         return self.name
