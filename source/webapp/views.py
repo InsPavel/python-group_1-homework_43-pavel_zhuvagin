@@ -1,10 +1,19 @@
-from django.views.generic import ListView, DetailView
-
+from django.views.generic import ListView, DetailView, FormView, CreateView, UpdateView
 from webapp.models import Article, User
+from webapp.forms import SearchArticleForm, ArticleForm
+from django.urls import reverse_lazy
 
-class ArticleListView(ListView):
+class ArticleListView(ListView, FormView):
     model = Article
     template_name = 'article_list.html'
+    form_class = SearchArticleForm
+
+    def get_queryset(self):
+        article_name = self.request.GET.get('article_name')
+        if article_name:
+            return self.model.objects.filter(title__icontains=article_name)
+        else:
+            return self.model.objects.all()
 
 class ArticleDetailView(DetailView):
     model = Article
@@ -21,3 +30,13 @@ class UserDetailView(DetailView):
 class FavoritesDetailView(DetailView):
     model = User
     template_name = 'favorites_detail.html'
+
+class ArticleCreateView(CreateView):
+    model = Article
+    form_class = ArticleForm
+    template_name = 'article_create.html'
+    success_url = reverse_lazy('article_list')
+
+
+
+

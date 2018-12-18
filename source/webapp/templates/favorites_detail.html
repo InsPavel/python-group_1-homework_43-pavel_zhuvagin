@@ -7,6 +7,6 @@
     <h4>Список избранного:</h4>
     <h5>Заголовок:</h5>
  {% for user in user.favorites.all %}
-        <p>{{ user.title }}</p>
+     <a href="{% url 'article_detail' user.pk%}"><p>{{ user.title }}</p></a>
     {% endfor %}
 {% endblock %}

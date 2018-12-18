@@ -13,7 +13,6 @@
     {% block styles %}{% endblock %}
 </head>
 <body>
-{% block menu %}
 <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,10 +26,10 @@
             <li class="nav-item">
                 <a href="{% url 'user_list' %}" class="nav-link">Пользователи</a>
             </li>
+            {% block menu %}{% endblock %}
         </ul>
     </div>
 </nav>
-{% endblock %}
 <div class="container">
     {% block content %}{% endblock %}
 </div>
