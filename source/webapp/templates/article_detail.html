@@ -11,8 +11,10 @@
         <div class="comment">
             <p>{{ comment.text }}</p>
             <p class="author">{{ comment.author }}</p>
+            <a href="{% url 'comment_update' comment.pk%}" class="nav-link">Редактировать комментарий</a>
         </div>
     {% endfor %}
+    <a href="{% url 'comment_create' %}" class="nav-link">Добавить комментарий</a>
     <h3>Оценки к статье</h3>
     {% for rating in article.article_grade.all %}
         <div class="rating">
