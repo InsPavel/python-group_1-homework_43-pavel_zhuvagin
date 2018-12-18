@@ -4,7 +4,7 @@
 {% block content %}
     <h3>Список статей</h3>
     {% for article in user.article_author.all %}
-        <a href="{% url 'article_detail' article.pk%}"><p>{{ article.title }}</p></a>
+        <a href="{% url 'article_detail' article.pk%}"><p>{{ article.title }}<a href="{% url 'article_update' article.pk %}">Редактировать</a></p></a>
     {% endfor %}
     <p><a href="{% url 'favorites_detail' user.pk %}">Избранное</a></p>
 {% endblock %}
