@@ -9,9 +9,10 @@ class ArticleListView(ListView, FormView):
     form_class = SearchArticleForm
 
     def get_queryset(self):
-        article_name = self.request.GET.get('article_name')
-        if article_name:
-            return self.model.objects.filter(title__icontains=article_name)
+        article_name_text = self.request.GET.get('article_name_text')
+
+        if article_name_text:
+            return self.model.objects.filter(title__icontains=article_name_text) | self.model.objects.filter(text__icontains=article_name_text)
         else:
             return self.model.objects.all()
 

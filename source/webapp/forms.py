@@ -2,7 +2,8 @@ from django import forms
 from webapp.models import Article, Comment
 
 class SearchArticleForm(forms.Form):
-    article_name = forms.CharField(max_length=200, required=False, label="Название статьи")
+    article_name_text = forms.CharField(max_length=200, required=False, label="Поиск")
+
 
 class CreateArticleForm(forms.ModelForm):
     class Meta:
