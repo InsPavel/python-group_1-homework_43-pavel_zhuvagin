@@ -26,3 +26,8 @@
     margin: 0;
     text-transform: uppercase;
 }
+
+.user_detail a{
+    padding-right: 10px;
+}
+

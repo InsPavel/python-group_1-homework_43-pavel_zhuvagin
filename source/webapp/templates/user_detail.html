@@ -3,8 +3,11 @@
 {% block title %}Статьи ползователя{% endblock %}
 {% block content %}
     <h3>Список статей</h3>
+    <div class="user_detail">
     {% for article in user.article_author.all %}
         <a href="{% url 'article_detail' article.pk%}"><p>{{ article.title }}<a href="{% url 'article_update' article.pk %}">Редактировать</a><a href="{% url 'article_delete' article.pk %}">Удалить</a></p></a>
+        <hr>
     {% endfor %}
+    </div>
     <p><a href="{% url 'favorites_detail' user.pk %}">Избранное</a></p>
 {% endblock %}
